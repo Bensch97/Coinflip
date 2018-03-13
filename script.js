@@ -1,15 +1,14 @@
 var coin = {
     state: 0,
     flip: function() {
-        this.state = Math.random() * (1 - 0) + 0;
-        Math.round(this.state);
+        this.state = Math.round(Math.random() * 1);
         return this.state
     },
     toString: function() {
         if (this.state == 1) {
-            stringPlacement('T');
+            return 'T';
         } else {
-            stringPlacement('H')
+            return 'H';
         }
         // return “H” or “T” depending on whether this.state is 0 or 1
     },
@@ -21,21 +20,18 @@ var coin = {
             img.src = "quarter_head.jpg"
         }
         // set the properties of the image element to show either heads or tails
-        return img;
         let parent = document.getElementById('parent')
         parent.appendChild(img)
+        return img;
     }
 };
 
 for (let i = 0; i < 20; i++) {
     coin.flip();
-    coin.toString();
-    console.log(coin.toString)
+    console.log(coin.toString())
 };
 
-function stringPlacement(char) {
-    let newElement = document.createElement('p')
-    let elementText = document.createTextNode(char)
-    newElement.appendChild(elementText)
-    document.getElementById('text').appendChild(newElement)
+for (let i = 0; i < 20; i++) {
+    coin.flip();
+    coin.toHTML();
 }
